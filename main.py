@@ -1,5 +1,4 @@
 import csv
-import re
 from bs4 import BeautifulSoup as soup
 import urllib.request
 from selenium import webdriver
@@ -10,6 +9,7 @@ with open("movie_metadata.csv") as data:
         movielist.append(row[17])
 
 imdblink=movielist[1:]
+imagelist=[]
 # print(imdblink)
 # adding incognito
 option = webdriver.ChromeOptions()
@@ -26,6 +26,12 @@ for link in imdblink:
     posterdiv = page_soup.find("div", {"class": "poster"})
     img = posterdiv.find("img",src=True)
     image_link=(img["src"])
+    y="posters/"+str(i)+".jpg"
     urllib.request.urlretrieve(image_link, "posters/"+str(i)+".jpg")
+    imagelist.append("image_link")
+    imagelist.append(y)
+    print(imagelist)
+    break
+
 
 
