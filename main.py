@@ -27,7 +27,7 @@ for link in imdblink:
     img = posterdiv.find("img",src=True)
     image_link=(img["src"])
     y="posters/"+str(i)+".jpg"
-    urllib.request.urlretrieve(image_link, "posters/"+str(i)+".jpg")
+    urllib.request.urlretrieve(image_link, "posters/x/"+str(i)+".jpg")
     imagelist.append("image_link")
     imagelist.append(y)
     print(imagelist)
